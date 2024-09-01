@@ -1,0 +1,19 @@
+*{
+  background: #000000;
+  color: #ffffff;
+  font-size: xx-large;
+}
+
+a{
+  color: #ffffff;
+}
+
+.hover:hover{
+  transform: scale(1.1);
+  cursor: default;
+}
+
+#return :hover,
+#return-link:hover{
+  cursor: grab;
+}
