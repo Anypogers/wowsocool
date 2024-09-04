@@ -1,0 +1,15 @@
+section{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: black;
+  color: #00ff00;
+}
+iframe{
+  border: 5px solid;
+  background: white;
+  color: black;
+  border-radius: 25px;
+}
+a{
+  color: #d0d0d0;
+}

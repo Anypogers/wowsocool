@@ -1,0 +1,117 @@
+<h1 id="file-structure">File Structure</h1>
+<pre><code>main
+|<span class="hljs-string">
++&gt;java
+</span>|<span class="hljs-string"> +&gt;br.com.§NOME§.§NOMEPROGRAMA§
+</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> +&gt;controller
+</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> +&gt;model
+</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> +&gt;repositories
+</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> +&gt;services
+</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> +&gt;§NOMEPROGRAMA§Application
+</span>|
++&gt;resources
+  +&gt;db
+  |<span class="hljs-string"> +&gt;migration
+  </span>|<span class="hljs-string">   +&gt;V001__§NOME§.sql
+  </span>|
+  +&gt;application.properties
+</code></pre><hr>
+<h1 id="controllers">controllers</h1>
+<h4 id="-java-class-"><em>Java Class</em></h4>
+<pre><code><span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping(<span class="hljs-meta-string">"/__tabela__"</span>)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">__tabela__Controller</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> __tabela__Service __tabela__Service;
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> __Tabela__Repository __tabela__Repository;
+
+    <span class="hljs-meta">@GetMapping</span>
+    <span class="hljs-keyword">public</span> List&lt;__Tabela__&gt; listarTodas__Tabela__() {
+        <span class="hljs-keyword">return</span> __tabela__Repository.findAll(Sort.<span class="hljs-keyword">by</span>(<span class="hljs-string">"__campo__"</span>).ascending());
+    }
+    <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">"/{id}"</span>)</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;__Tabela__&gt; buscarPeloCodigo(<span class="hljs-meta">@PathVariable</span> int id){
+        Optional&lt;__Tabela__&gt; __tabela__ = __tabela__Repository.findById(id);
+        <span class="hljs-keyword">return</span> __tabela__.isPresent() ? ResponseEntity.ok(__tabela__.<span class="hljs-keyword">get</span>()) : ResponseEntity.notFound().build();
+    }
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;__Tabela__&gt; inserir(<span class="hljs-meta">@RequestBody</span> __Tabela__ __tabela__) {
+        __Tabela__ __tabela__Salva = __tabela__Service.salvar(__tabela__);
+        <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.CREATED).body(__tabela__Salva);
+
+    }
+}
+</code></pre><hr>
+<h1 id="model">model</h1>
+<h4 id="-java-class-"><em>Java Class</em></h4>
+<pre><code><span class="hljs-variable">@Entity</span>
+<span class="hljs-variable">@Table</span>(name = <span class="hljs-string">"__tabela__"</span>)
+public class __Tabela__ {
+    <span class="hljs-variable">@Id</span>
+    <span class="hljs-variable">@GeneratedValue</span>(Strategy = GenerationType.IDENTITY)
+    private __type__ __campo id__
+
+    private __type__ __campo__
+
+    private __type__ __campo__
+
+    <span class="hljs-variable">@JsonIgnore</span>
+    <span class="hljs-variable">@OneToMany</span>(mappedBy = <span class="hljs-string">"__tabela PAI__"</span>)
+    private List&lt;__Tabela FILHO__&gt; ^tabela FILHO^Lista = new ArrayList&lt;&gt;();
+
+    <span class="hljs-variable">@ManyToOne</span>
+    <span class="hljs-variable">@JoinColumn</span>(name = <span class="hljs-string">"__tabela PAI_____campo ID__"</span>)
+    private __Tabela PAI__ __tabela PAI__
+
+    <span class="hljs-comment">//GETTERS AND SETTERS</span>
+
+    <span class="hljs-comment">//EQUALS AND HASHCODE</span>
+}
+</code></pre><hr>
+<h1 id="repositories">repositories</h1>
+<h4 id="-interface-"><em>Interface</em></h4>
+<pre><code><span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">__Tabela__Repository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">__Tabela__</span>, <span class="hljs-title">__campo</span> <span class="hljs-title">ID__</span>&gt; {</span>
+
+}
+</code></pre><hr>
+<h1 id="services">services</h1>
+<h4 id="-java-class-"><em>Java Class</em></h4>
+<pre><code><span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">__Tabela__Service</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> __Tabela__Repository __tabela__Repository;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function">__tabela__ <span class="hljs-title">salvar</span><span class="hljs-params">(__Tabela__ __tabela__)</span></span>{
+        <span class="hljs-function"><span class="hljs-keyword">return</span> __tabela__Repository.<span class="hljs-title">save</span><span class="hljs-params">(__tabela__)</span></span>;
+    }
+}
+</code></pre><hr>
+<h1 id="postman">postman</h1>
+<h3 id="post">POST</h3>
+<p><code>localhost:8080/__tabela__</code></p>
+<p><code>Body (Raw --- JSON):</code></p>
+<pre><code>{
+    <span class="hljs-attr">"__campo__"</span>: __VALOR__
+}
+</code></pre><h3 id="get">GET</h3>
+<pre><code><span class="hljs-symbol">localhost:</span><span class="hljs-number">8080</span>/__tabela__
+</code></pre><pre><code>localhost:8080/<span class="hljs-strong">__tabela__</span>/<span class="hljs-strong">__id__</span>
+</code></pre><hr>
+<h1 id="properties">properties</h1>
+<pre><code><span class="hljs-keyword">spring</span>.application.name=orcamento
+
+# Configuracao banco de dados MySQL
+<span class="hljs-keyword">spring</span>.jpa.database=MYSQL
+<span class="hljs-keyword">spring</span>.datasource.url=jdbc:mysql:<span class="hljs-comment">//localhost:3306/orcamento?createDatabaseIfNotExist=true&amp;useSSL=false&amp;ServerTimezone=America/Sao_Paulo</span>
+<span class="hljs-keyword">spring</span>.datasource.username=root
+<span class="hljs-keyword">spring</span>.datasource.password=
+<span class="hljs-keyword">spring</span>.flyway.baseline-on-migration=true
+
+
+# Configuracao <span class="hljs-keyword">do</span> Hibernate
+<span class="hljs-keyword">spring</span>.jpa.show-sql=true
+</code></pre>
