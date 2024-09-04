@@ -7,9 +7,9 @@ footer{
     background: #343a40;
 }
 
-footer .container,
-footer .row{
-    margin: 0;
+footer a{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 a{

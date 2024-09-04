@@ -27,6 +27,7 @@ body{
 
 .rainbow-text {
   background: black; /* Initial gradient */
+  transition: background, 0.25s;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
