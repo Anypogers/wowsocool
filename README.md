@@ -6,4 +6,4 @@ Reasons you should check it out:
 - It's cool
 - It's free
 
-[Go check it out](Anypogers.github.io/wowsocool/)
+[Go check it out](https://Anypogers.github.io/wowsocool/)
