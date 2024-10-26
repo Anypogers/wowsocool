@@ -1,0 +1,30 @@
+body{
+  background-color: #000000;
+}
+
+img{
+  border: #00e1ff dashed;
+  border-radius: 5rem;
+  transition: border 0.2s;
+  transition: border-radius 0.2s;
+}
+
+img:hover{
+  scale: 1.02;
+  border: #f1f solid;
+  border-radius: 4rem;
+}
+
+section {
+  color: #ffffff;
+  margin-top: 5rem;
+}
+
+a{
+  color: #00e1ff;
+  transition: color 0.2s;
+}
+
+a:hover{
+  color: #f1f;
+}
