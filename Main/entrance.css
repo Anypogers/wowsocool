@@ -1,0 +1,10 @@
+a .card{
+  border: 2px #000000 solid;
+  border-radius: 1rem;
+  min-height: 20rem;
+  transition: scale 0.1s;
+}
+
+a .card:hover{
+  scale: 1.01;
+}
