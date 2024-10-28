@@ -4,6 +4,8 @@ body{
 
 img{
   border: #00e1ff dashed;
+  max-width: 80%;
+  max-height: 90%;
   border-radius: 5rem;
   transition: border 0.2s;
   transition: border-radius 0.2s;
@@ -17,7 +19,6 @@ img:hover{
 
 section {
   color: #ffffff;
-  margin-top: 5rem;
 }
 
 a{
@@ -27,4 +28,13 @@ a{
 
 a:hover{
   color: #f1f;
+}
+
+.separator {
+  width: 75%; /* Adjust width as needed */
+  height: 2px; /* Thickness of the line */
+  border: 1px #ffffff solid;
+  border-radius: 1rem;
+  background-color: #ffffff; /* Color of the line */
+  margin: 20px auto; /* Centering the separator */
 }
